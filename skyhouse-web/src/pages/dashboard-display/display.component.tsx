@@ -151,7 +151,7 @@ export function DashboardComponent(props: DashboardViewProps) {
     <S.Page>
       <S.Shell>
         <S.Brand>
-          <S.BrandMark src="/logo.svg" alt="" aria-hidden />
+          <S.BrandMark src="/logo.png" alt="" aria-hidden />
           SkyHouse
         </S.Brand>
 
