@@ -7,7 +7,7 @@ metrics (ROAS, CPA) and a live marketing-news feed served by an Express API.
   third-party news feed (GNews).
 - `skyhouse-web/` — React + Vite + TypeScript frontend.
 
-See [project.md](project.md) for the architecture and how the third-party API
+See [PROJECT.md](PROJECT.md) for the architecture and how the third-party API
 integration is built.
 
 ## Requirements
