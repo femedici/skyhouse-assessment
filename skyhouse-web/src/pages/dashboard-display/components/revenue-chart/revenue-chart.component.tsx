@@ -30,11 +30,11 @@ export function RevenueChart({ rows }: RevenueChartProps) {
 
   return (
     <S.List>
-      {sorted.map((row) => {
+      {sorted.map((row, index) => {
         const revenue = row.revenue ?? 0;
         const pct = maxRevenue > 0 ? (revenue / maxRevenue) * 100 : 0;
         return (
-          <S.Item key={row.campaignId ?? row.campaignName ?? Math.random()}>
+          <S.Item key={row.campaignId ?? row.campaignName ?? `row-${index}`}>
             <S.Name title={row.campaignName ?? undefined}>
               {row.campaignName ?? "Untitled"}
             </S.Name>

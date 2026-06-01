@@ -24,7 +24,6 @@ utils/, config/  pure helpers (metrics) and static settings (news, swagger)
   controller methods and carry the `@openapi` JSDoc blocks that build the Swagger
   spec. Endpoints:
   - `GET /api/campaigns` — all campaigns, enriched with ROAS and CPA.
-  - `GET /api/campaigns/filter?minRoas=` — campaigns above a ROAS threshold.
   - `GET /api/campaigns/csv` — the raw CSV.
   - `GET /api/summary` — aggregate totals.
   - `GET /api/insights/news` — the marketing-news feed.

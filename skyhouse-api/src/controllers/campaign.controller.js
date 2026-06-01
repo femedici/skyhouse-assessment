@@ -9,21 +9,6 @@ export async function listCampaigns(req, res, next) {
   }
 }
 
-export async function filterCampaigns(req, res, next) {
-  try {
-    const { minRoas } = req.query;
-    const result = await campaignService.getCampaignsByMinRoas(minRoas);
-    res.json({
-      success: true,
-      data: result.campaigns,
-      appliedMinRoas: result.appliedMinRoas,
-      warnings: result.warnings,
-    });
-  } catch (error) {
-    next(error);
-  }
-}
-
 export async function getSummary(req, res, next) {
   try {
     const summary = await campaignService.getSummary();

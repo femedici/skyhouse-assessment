@@ -49,23 +49,6 @@ router.get("/campaigns", campaignController.listCampaigns);
 
 /**
  * @openapi
- * /api/campaigns/filter:
- *   get:
- *     summary: Filter campaigns by a minimum ROAS
- *     tags: [Campaigns]
- *     parameters:
- *       - in: query
- *         name: minRoas
- *         schema: { type: number, example: 2 }
- *         description: Only return campaigns whose ROAS is >= this value
- *     responses:
- *       200:
- *         description: Campaigns at or above the ROAS floor
- */
-router.get("/campaigns/filter", campaignController.filterCampaigns);
-
-/**
- * @openapi
  * /api/campaigns/csv:
  *   get:
  *     summary: Raw CSV source used to power the dashboard

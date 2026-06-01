@@ -27,7 +27,7 @@ function ageHoursFrom(publishedAt) {
   return Math.max(0, Math.round((Date.now() - t) / 3_600_000));
 }
 
-function transform(payload) {
+export function transform(payload) {
   const rawArticles = Array.isArray(payload?.articles) ? payload.articles : [];
 
   const seen = new Set();

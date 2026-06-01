@@ -67,15 +67,6 @@ export async function getCampaigns() {
   return { campaigns, warnings };
 }
 
-export async function getCampaignsByMinRoas(minRoas) {
-  const { campaigns, warnings } = await getCampaigns();
-  const threshold = toNumber(minRoas) ?? 0;
-  const filtered = campaigns.filter(
-    (c) => c.roas !== null && c.roas >= threshold,
-  );
-  return { campaigns: filtered, warnings, appliedMinRoas: threshold };
-}
-
 export async function getSummary() {
   const { campaigns, warnings } = await getCampaigns();
 

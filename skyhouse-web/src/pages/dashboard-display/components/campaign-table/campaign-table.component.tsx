@@ -66,9 +66,9 @@ export function CampaignTable({ rows, isFiltered }: CampaignTableProps) {
               </S.Empty>
             </tr>
           ) : (
-            rows.map((row) => (
+            rows.map((row, index) => (
               <S.Row
-                key={row.campaignId ?? row.campaignName ?? Math.random()}
+                key={row.campaignId ?? row.campaignName ?? `row-${index}`}
                 $tier={row.tier}
               >
                 <S.Td>
