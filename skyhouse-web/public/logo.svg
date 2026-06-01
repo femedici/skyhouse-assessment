@@ -1,0 +1,16 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SkyHouse">
+  <defs>
+    <linearGradient id="skyhouse-mark" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2FD2F4" />
+      <stop offset="0.55" stop-color="#2B79F0" />
+      <stop offset="1" stop-color="#2323FF" />
+    </linearGradient>
+  </defs>
+  <path
+    d="M24 4 L5 44 M24 4 L43 44 M24 4 L24 36 M5 44 L24 36 M43 44 L24 36 M14.5 24 L24 36 M33.5 24 L24 36"
+    stroke="url(#skyhouse-mark)"
+    stroke-width="2.4"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>
