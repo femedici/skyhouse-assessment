@@ -3,7 +3,7 @@ export const NEWS_CONFIG = {
   baseUrl: "https://gnews.io/api/v4",
   query:
     process.env.GNEWS_QUERY ??
-    '"brand strategy" OR branding OR "marketing strategy" OR "marketing trends" OR "consumer insights" OR "marketing technology" OR martech',
+    '"performance marketing" OR "digital advertising" OR "ad spend" OR "paid media" OR "return on ad spend" OR "advertising campaign" OR "campaign performance" OR "marketing ROI"',
   lang: "en",
   max: 10,
   timeoutMs: 8000,

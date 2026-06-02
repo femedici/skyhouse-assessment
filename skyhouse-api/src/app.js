@@ -1,10 +1,8 @@
 import express from "express";
 import cors from "cors";
-import swaggerUi from "swagger-ui-express";
 
 import campaignRoutes from "./routes/campaign.routes.js";
 import insightsRoutes from "./routes/insights.routes.js";
-import { swaggerSpec } from "./config/swagger.js";
 
 const app = express();
 
@@ -13,9 +11,6 @@ app.use(express.json());
 
 app.use("/api", campaignRoutes);
 app.use("/api", insightsRoutes);
-
-app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-app.get("/openapi.json", (req, res) => res.json(swaggerSpec));
 
 app.get("/health", (req, res) => res.json({ status: "ok" }));
 

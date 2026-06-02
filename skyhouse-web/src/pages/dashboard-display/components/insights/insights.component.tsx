@@ -74,7 +74,8 @@ export function InsightsFeed({
         <S.Spinner aria-hidden />
         <S.StateTitle>Gathering the latest stories…</S.StateTitle>
         <S.StateText>
-          Pulling fresh advertising and marketing news from the wire.
+          Pulling fresh campaign performance and advertising ROI news from the
+          wire.
         </S.StateText>
       </S.State>
     );
@@ -125,8 +126,8 @@ export function InsightsFeed({
           </S.RefreshButton>
         </S.TitleRow>
         <S.Subtitle>
-          Branding, business, marketing tech and consumer insights worth knowing
-          right now, de-duplicated and sorted newest first.
+          Campaign performance, ad spend and advertising ROI worth knowing right
+          now, de-duplicated and sorted newest first.
         </S.Subtitle>
         <S.MetaRow>
           <span>

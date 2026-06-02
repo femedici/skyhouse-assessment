@@ -3,9 +3,17 @@
 Express (ESM) backend for the SkyHouse dashboard. It serves the campaign data
 and a **Campaign Insights** feed built on a third-party REST API.
 
-- Interactive API docs (Swagger UI): `http://localhost:3000/docs`
-- Machine-readable spec: `http://localhost:3000/openapi.json`
 - Health check: `http://localhost:3000/health`
+
+### Endpoints
+
+| Method & path           | Returns                                                  |
+| ----------------------- | -------------------------------------------------------- |
+| `GET /api/campaigns`    | All campaigns enriched with ROAS and CPA.                |
+| `GET /api/campaigns/csv`| The raw CSV that powers the dashboard.                   |
+| `GET /api/summary`      | Aggregate totals (spend, revenue, overall ROAS).         |
+| `GET /api/insights/news`| Cleaned, aggregated campaign-performance news feed (GNews).|
+| `GET /health`           | `{ "status": "ok" }`                                     |
 
 ## Running
 
@@ -25,8 +33,8 @@ free API key; without one it returns a clear, actionable 503 instead of failing.
 
 ### What it does
 
-`GET /api/insights/news` returns the latest branding, business, marketing-tech
-and consumer-insights news, cleaned and aggregated for the dashboard. It is a
+`GET /api/insights/news` returns the latest campaign-performance, ad-spend and
+advertising-ROI news, cleaned and aggregated for the dashboard. It is a
 standalone endpoint with its own controller, service and route docs, independent
 of the campaign data.
 
@@ -35,10 +43,10 @@ of the campaign data.
 **Provider: [GNews](https://gnews.io) `/api/v4/search`.**
 
 The Insights tab is about the world the campaigns live in, so a live news feed
-curated to branding, business, marketing technology and consumer insights is
-genuinely relevant content rather than filler. The default query uses exact
-phrases (not loose keywords) so stories stay on theme. GNews was chosen because
-it:
+curated to campaign performance, ad spend, paid media and advertising ROI is
+genuinely relevant content rather than filler — it mirrors the dashboard's own
+ROAS/CPA focus. The default query uses exact phrases (not loose keywords) so
+stories stay on theme. GNews was chosen because it:
 
 - has a **free tier** (100 requests/day) suitable for an assessment,
 - uses **simple key-based auth** over plain REST and JSON (no OAuth dance),
@@ -131,9 +139,9 @@ concerns and the data-shaping concerns stay cleanly separated.
     },
   ],
   "meta": {
-    "topic": "Branding, business & marketing tech",
+    "topic": "Campaign performance & advertising ROI",
     "provider": "GNews",
-    "query": "\"brand strategy\" OR branding OR \"marketing strategy\" OR ...",
+    "query": "\"performance marketing\" OR \"digital advertising\" OR \"ad spend\" OR ...",
     "fetchedAt": "2026-06-01T12:00:00Z",
     "totalReturned": 8,
     "totalAvailable": 1240,
@@ -146,9 +154,6 @@ concerns and the data-shaping concerns stay cleanly separated.
 }
 ```
 
-Full request/response schemas are documented inline with `@openapi` annotations
-and browsable at `/docs`.
-
 ### Files
 
 | File                                     | Responsibility                                           |
@@ -156,4 +161,4 @@ and browsable at `/docs`.
 | `src/config/news.config.js`              | Reads env, holds query/timeout/cache defaults.           |
 | `src/services/insights.service.js`       | Fetch, auth, timeout, error mapping, cache, transform.   |
 | `src/controllers/insights.controller.js` | Thin HTTP layer: calls the service, shapes the response. |
-| `src/routes/insights.routes.js`          | Route wiring plus `@openapi` documentation.              |
+| `src/routes/insights.routes.js`          | Route wiring.                                            |

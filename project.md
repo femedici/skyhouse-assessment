@@ -14,15 +14,14 @@ by feature, and named by role (`*.controller`, `*.service`, `*.component`,
 A request flows through four layers, top to bottom:
 
 ```
-routes/        HTTP surface: paths, OpenAPI docs, wiring to controllers
+routes/        HTTP surface: paths, wiring to controllers
 controllers/   request/response handling, status codes, no business logic
 services/      business logic and data access (CSV parsing, GNews fetch, cache)
-utils/, config/  pure helpers (metrics) and static settings (news, swagger)
+utils/, config/  pure helpers (metrics) and static settings (news)
 ```
 
 - **`routes/`** — `campaign.routes.js`, `insights.routes.js`. Map URLs to
-  controller methods and carry the `@openapi` JSDoc blocks that build the Swagger
-  spec. Endpoints:
+  controller methods. Endpoints:
   - `GET /api/campaigns` — all campaigns, enriched with ROAS and CPA.
   - `GET /api/campaigns/csv` — the raw CSV.
   - `GET /api/summary` — aggregate totals.
@@ -35,10 +34,9 @@ utils/, config/  pure helpers (metrics) and static settings (news, swagger)
     computed metrics, and aggregates the summary.
   - `insights.service.js` owns the GNews integration (see below).
 - **`utils/metrics.js`** — pure ROAS/CPA math, no I/O, easy to reason about.
-- **`config/`** — `news.config.js` (GNews settings from env) and `swagger.js`
-  (OpenAPI generation).
-- **`app.js`** builds the Express app (CORS, JSON, routes, `/docs`, `/health`,
-  404, error handler); **`server.js`** starts it.
+- **`config/`** — `news.config.js` (GNews settings from env).
+- **`app.js`** builds the Express app (CORS, JSON, routes, `/health`, 404, error
+  handler); **`server.js`** starts it.
 
 ## Frontend (`skyhouse-web/src`)
 

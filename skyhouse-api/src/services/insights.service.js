@@ -69,7 +69,7 @@ export function transform(payload) {
   return {
     articles,
     meta: {
-      topic: "Branding, business & marketing tech",
+      topic: "Campaign performance & advertising ROI",
       provider: "GNews",
       query: NEWS_CONFIG.query,
       fetchedAt: new Date().toISOString(),

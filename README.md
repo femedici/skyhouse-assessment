@@ -24,8 +24,6 @@ cp .env.example .env     # then add your GNews key (see "Environment" below)
 npm run dev              # http://localhost:3000
 ```
 
-- API docs (Swagger UI): http://localhost:3000/docs
-- OpenAPI spec: http://localhost:3000/openapi.json
 - Health check: http://localhost:3000/health
 
 `npm run dev` watches for changes and loads `.env` if present. Use `npm start`
@@ -53,7 +51,7 @@ The only configuration is for the backend, in `skyhouse-api/.env` (copy it from
 | Variable        | Required             | Purpose                                                                                                     |
 | --------------- | -------------------- | ----------------------------------------------------------------------------------------------------------- |
 | `GNEWS_API_KEY` | For the Insights tab | Free key from [gnews.io](https://gnews.io) (100 requests/day). Read from the environment, never hard-coded. |
-| `GNEWS_QUERY`   | No                   | Override the news search query. Defaults to branding / marketing-tech terms.                                |
+| `GNEWS_QUERY`   | No                   | Override the news search query. Defaults to campaign-performance / advertising-ROI terms.                   |
 | `PORT`          | No                   | Backend port. Defaults to `3000`.                                                                           |
 
 The campaign endpoints (CSV, performance, summary) work with no configuration.
